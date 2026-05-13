@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes SAÉ - Portfolio BUT R&T</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sae-accordion {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sae-accordion:hover {
+            border-color: var(--accent-light);
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.1);
+        }
+
+        .accordion-header {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .accordion-header:hover {
+            background: rgba(99, 179, 237, 0.1);
+        }
+
+        .accordion-header.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .accordion-header.active .accordion-title,
+        .accordion-header.active .accordion-code {
+            color: white;
+        }
+
+        .accordion-header.active .accordion-icon {
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .accordion-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .accordion-code {
+            background: white;
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .accordion-header.active .accordion-code {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .accordion-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            flex: 1;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 3000px;
+        }
+
+        .accordion-body {
+            padding: 30px;
+        }
+
+        .sae-field {
+            margin-bottom: 25px;
+        }
+
+        .sae-field-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .sae-field-value {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 15px 20px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 0.97rem;
+        }
+
+        .competences-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .competence-tag {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-back">
+        <a href="index.html" class="back-button">
+            ← Retour à l'accueil
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Mes SAÉ</h1>
+                <p class="subtitle">Situations d'Apprentissage et d'Évaluation</p>
+            </div>
+        </div>
+
+        <div class="content">
+
+
+            <div class="semester-section">
+                <h2 class="semester-title">Semestre 1 - Tronc Commun</h2>
+
+                <!-- ─── SAÉ S1 - N°1 ──────────────────────────────────────── -->
+                <div class="sae-accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-left">
+                            <span class="accordion-code">SAÉ 1.01</span>
+                            <span class="accordion-title">Se sensibiliser à l'hygiène informatique et à la cybersécurité</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="sae-field">
+                                <span class="sae-field-label">Contexte et objectifs</span>
+                                <div class="sae-field-value">
+                                    Dans le cadre de la SAÉ 1.01 « Se sensibiliser à l'hygiène informatique et à la cybersécurité », l'objectif était de découvrir les bonnes pratiques de sécurité numérique et de comprendre les bases de la cybersécurité.
+                                    Le projet reposait sur plusieurs activités : une autoformation via le MOOC de l'ANSSI, un travail de recherche en groupe sur une thématique liée à la cybersécurité, ainsi qu'une mise en pratique sous forme de TP et de défis type Capture The Flag (CTF).
+                                    L'objectif final était d'être capable de sensibiliser des utilisateurs non spécialistes aux bonnes pratiques de sécurité informatique.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Compétences mobilisées</span>
+                                <div class="competences-tags">
+                                    <span class="competence-tag">Sensibilisation à la cybersécurité</span>
+                                    <span class="competence-tag">Recherche et analyse d'informations techniques</span>
+                                    <span class="competence-tag">Travail collaboratif en groupe</span>
+                                    <span class="competence-tag">Présentation orale et communication technique</span>
+                                    <span class="competence-tag">Outils de sécurité informatique sous Linux/Debian</span>
+                                    <span class="competence-tag">Mécanismes de sécurité réseau</span>
+                                    <span class="competence-tag">Veille et bonnes pratiques en hygiène numérique</span>
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages Critiques (AC)</span>
+                                <div class="sae-field-value">
+                                    Comprendre les principes fondamentaux de la cybersécurité — Identifier les risques liés à l'utilisation des services numériques — Mettre en œuvre des pratiques de sécurité adaptées — Utiliser des outils d'analyse et de sécurisation réseau — Expliquer des notions techniques de manière claire — Collaborer efficacement dans un travail de groupe — Développer une culture générale en sécurité informatique
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Situation et rôle</span>
+                                <div class="sae-field-value">
+                                    J'ai travaillé au sein d'un groupe chargé d'étudier une thématique liée à la cybersécurité (mots de passe, accès SSH ou découverte réseau selon le sujet choisi).
+                                    Mon rôle consistait à effectuer des recherches techniques, tester différents outils de sécurité, participer à la rédaction d'une notice collaborative, préparer une présentation orale, et mettre en pratique certaines notions lors des TP et exercices CTF.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Démarche et actions</span>
+                                <div class="sae-field-value">
+                                    Suivi du MOOC de l'ANSSI sur l'hygiène numérique — Réalisation des quiz et préparation du QCM final — Constitution du groupe et répartition des tâches — Recherche documentaire sur la thématique attribuée — Expérimentation d'outils de cybersécurité sous Debian/Linux — Rédaction d'un document technique collaboratif — Préparation de supports de présentation (diapositives) — Présentation orale du travail réalisé — Participation aux exercices pratiques de type Capture The Flag
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Résultats obtenus</span>
+                                <div class="sae-field-value">
+                                    Le projet a permis d'acquérir les bases de l'hygiène informatique et de la cybersécurité. Le groupe a produit une documentation technique claire et une présentation orale expliquant les recherches et expérimentations réalisées. Les activités pratiques ont permis de mieux comprendre les mécanismes de sécurité et les risques liés aux systèmes informatiques.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Points forts</span>
+                                <div class="sae-field-value">
+                                    Travail collaboratif efficace — Découverte concrète des outils de cybersécurité — Bonne compréhension des bonnes pratiques numériques — Expérience pratique grâce aux exercices CTF — Développement des compétences de communication orale — Sensibilisation aux enjeux de sécurité informatique
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Difficultés rencontrées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages et compétences développées</span>
+                                <div class="sae-field-value">
+                                    Cette SAÉ m'a permis de développer mes connaissances en cybersécurité et en hygiène numérique. J'ai appris à adopter de bonnes pratiques de sécurité, comprendre les risques informatiques courants, utiliser des outils réseau et de sécurité sous Linux, travailler efficacement en groupe, présenter des informations techniques à l'oral, et réaliser des recherches techniques de manière autonome.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Traces et preuves</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ─── Fin SAÉ S1 - N°1 ──────────────────────────────────── -->
+
+                <!-- ─── SAÉ S1 - N°2 ──────────────────────────────────────── -->
+                <div class="sae-accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-left">
+                            <span class="accordion-code">SAÉ 1.02</span>
+                            <span class="accordion-title">S'initier aux réseaux informatiques</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="sae-field">
+                                <span class="sae-field-label">Contexte et objectifs</span>
+                                <div class="sae-field-value">
+                                    Dans le cadre de la SAÉ 1.02 « S'initier aux réseaux informatiques », l'objectif était de concevoir et mettre en œuvre une infrastructure réseau complète pour une entreprise fictive nommée Fibre&amp;Company.
+                                    L'entreprise souhaitait moderniser son réseau afin d'améliorer ses performances, sa sécurité et sa capacité à accueillir un plus grand nombre d'utilisateurs.
+                                    Le projet consistait à configurer des équipements réseau (switchs, routeur, serveur Debian virtualisé), mettre en place des VLANs, des services réseau et différents mécanismes de sécurité, puis vérifier le bon fonctionnement de l'ensemble de l'infrastructure.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Compétences mobilisées</span>
+                                <div class="competences-tags">
+                                    <span class="competence-tag">Configuration de réseaux locaux (LAN)</span>
+                                    <span class="competence-tag">Administration de switchs et routeurs Cisco</span>
+                                    <span class="competence-tag">Mise en œuvre de VLANs et routage inter-VLAN</span>
+                                    <span class="competence-tag">Administration système sous Linux/Debian</span>
+                                    <span class="competence-tag">Gestion des services réseau (DHCP, DNS, SMB, Apache, SSH)</span>
+                                    <span class="competence-tag">Virtualisation et gestion de machines virtuelles</span>
+                                    <span class="competence-tag">Sécurisation des équipements réseau</span>
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages Critiques (AC)</span>
+                                <div class="sae-field-value">
+                                    Comprendre l'architecture d'un réseau d'entreprise — Configurer des équipements réseau professionnels — Mettre en œuvre des services réseau essentiels — Segmenter un réseau avec des VLANs — Sécuriser les accès et les infrastructures — Administrer un serveur Linux en ligne de commande — Tester et valider le fonctionnement d'un réseau
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Situation et rôle</span>
+                                <div class="sae-field-value">
+                                    J'ai travaillé en tant qu'administrateur réseau junior chargé de déployer un prototype d'infrastructure réseau pour l'entreprise Fibre&amp;Company.
+                                    Mon rôle consistait à configurer les équipements réseau, mettre en place les VLANs et le routage, installer et administrer le serveur Debian, configurer les services réseau, renforcer la sécurité de l'infrastructure, et réaliser des tests de fonctionnement et de performances.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Démarche et actions</span>
+                                <div class="sae-field-value">
+                                    Étude du cahier des charges et de l'architecture réseau demandée — Création du plan d'adressage IPv4 et découpage des VLANs — Configuration des switchs Cisco (VLAN, RSTP, agrégation de liens, DHCP) — Mise en place du routage inter-VLAN et du routage vers Internet — Installation d'une machine virtuelle Debian sans interface graphique — Partitionnement et configuration des systèmes de fichiers Linux — Création automatisée des comptes utilisateurs — Installation et configuration des services : DHCP, DNS (Bind9), partage SMB, serveur web Apache2, SSH sécurisé — Mise en œuvre des mécanismes de sécurité réseau : désactivation de Telnet et HTTP, sécurisation SSH, VLAN natif pour ports inutilisés, protections sur les switchs — Réalisation des tests réseau et vérification des fonctionnalités
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Résultats obtenus</span>
+                                <div class="sae-field-value">
+                                    Le projet a permis de mettre en place une infrastructure réseau fonctionnelle et sécurisée répondant aux besoins de l'entreprise fictive. Les VLANs, le routage inter-VLAN et les différents services réseau ont été configurés avec succès. Le serveur Debian a été correctement déployé et les mécanismes de sécurité ont renforcé la protection de l'infrastructure. Les différents tests réalisés ont permis de valider le bon fonctionnement du réseau et des services.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Points forts</span>
+                                <div class="sae-field-value">
+                                    Infrastructure réseau complète et cohérente — Bonne segmentation du réseau avec les VLANs — Mise en œuvre de services réseau variés — Utilisation concrète des équipements Cisco — Renforcement de la sécurité réseau — Découverte approfondie de l'administration Linux — Validation du projet grâce à des tests techniques
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Difficultés rencontrées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages et compétences développées</span>
+                                <div class="sae-field-value">
+                                    Cette SAÉ m'a permis de développer mes compétences en réseaux et en administration système. J'ai appris à configurer des switchs et routeurs Cisco, mettre en place des VLANs et du routage, administrer un serveur Debian, configurer des services réseau professionnels, sécuriser une infrastructure informatique, réaliser des tests de connectivité et de performances, et travailler de manière plus autonome sur un projet technique complexe.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Traces et preuves</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ─── Fin SAÉ S1 - N°2 ──────────────────────────────────── -->
+
+                <!-- ─── SAÉ S1 - N°3 ──────────────────────────────────────── -->
+                <div class="sae-accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-left">
+                            <span class="accordion-code">SAÉ 1.03</span>
+                            <span class="accordion-title">Titre de la SAÉ 1.03</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="sae-field">
+                                <span class="sae-field-label">Contexte et objectifs</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Compétences mobilisées</span>
+                                <div class="competences-tags"><!-- ✏️ -->
+                                    <span class="competence-tag">RT1 - Administrer les réseaux</span>
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages Critiques (AC)</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Situation et rôle</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Démarche et actions</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Résultats obtenus</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Points forts</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Difficultés rencontrées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages et compétences développées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Traces et preuves</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ─── Fin SAÉ S1 - N°3 ──────────────────────────────────── -->
+
+                <!-- ─── SAÉ S1 - N°4 ──────────────────────────────────────── -->
+                <div class="sae-accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-left">
+                            <span class="accordion-code">SAÉ 1.04</span>
+                            <span class="accordion-title">Créer un site Web multipage</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="sae-field">
+                                <span class="sae-field-label">Contexte et objectifs</span>
+                                <div class="sae-field-value">
+                                    Dans le cadre de la SAÉ 1.04, l'objectif était de concevoir et développer un site Web multipage en HTML et CSS. Le thème du site étant libre, cela permettait de créer un projet personnel autour d'un centre d'intérêt (sport, jeux vidéo, musique, voyage, etc.).
+                                    Le projet devait respecter plusieurs contraintes techniques : création d'un site responsive, utilisation de Flexbox et/ou CSS Grid, respect des standards du Web (validation W3C), prise en compte de l'accessibilité numérique (WCAG 2.0 AA) et mise en ligne du projet via GitHub Pages.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Compétences mobilisées</span>
+                                <div class="competences-tags">
+                                    <span class="competence-tag">Développement Web HTML5 et CSS3</span>
+                                    <span class="competence-tag">Mise en page responsive (Flexbox / CSS Grid)</span>
+                                    <span class="competence-tag">Gestion de versions avec Git et GitHub</span>
+                                    <span class="competence-tag">Hébergement sur GitHub Pages</span>
+                                    <span class="competence-tag">Normes du Web et accessibilité</span>
+                                    <span class="competence-tag">Conception d'interface utilisateur</span>
+                                    <span class="competence-tag">Organisation d'un projet Web multipage</span>
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages Critiques (AC)</span>
+                                <div class="sae-field-value">
+                                    Structurer une page Web avec des balises HTML sémantiques — Créer une mise en page moderne et responsive — Appliquer une charte graphique cohérente — Optimiser l'accessibilité et la lisibilité du contenu — Utiliser Git pour suivre l'évolution d'un projet — Publier un projet Web en ligne — Produire un code valide et conforme aux standards du Web
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Situation et rôle</span>
+                                <div class="sae-field-value">
+                                    J'ai travaillé en tant que développeur Web débutant chargé de concevoir et réaliser un site Web complet.
+                                    Mon rôle consistait à imaginer le design du site, développer les différentes pages, intégrer les contenus, rendre le site responsive, tester et corriger les erreurs HTML/CSS, et publier le projet sur GitHub Pages.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Démarche et actions</span>
+                                <div class="sae-field-value">
+                                    Choix du thème et définition de l'arborescence du site — Réalisation des maquettes et choix de la charte graphique — Création des pages HTML : accueil, contenu principal et page "À propos" — Mise en forme avec CSS en utilisant Flexbox et CSS Grid — Ajout d'animations CSS pour améliorer l'expérience utilisateur — Adaptation du site aux différents formats d'écran (mobile, tablette, ordinateur) — Vérification de la validité du code avec les outils W3C — Mise en ligne du projet via GitHub Pages — Gestion du projet avec plusieurs commits Git explicites
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Résultats obtenus</span>
+                                <div class="sae-field-value">
+                                    Le projet final est un site Web multipage fonctionnel, responsive et accessible. Le site respecte les standards HTML/CSS, possède une navigation claire et une identité visuelle cohérente. Les différentes pages s'affichent correctement sur plusieurs appareils et le projet a été publié en ligne via GitHub Pages.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Points forts</span>
+                                <div class="sae-field-value">
+                                    Interface moderne et agréable visuellement — Site responsive adapté à tous les écrans — Utilisation correcte de Flexbox/CSS Grid — Code organisé et structuré — Respect des normes du Web et de l'accessibilité — Gestion de projet avec GitHub et commits réguliers
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Difficultés rencontrées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages et compétences développées</span>
+                                <div class="sae-field-value">
+                                    Cette SAÉ m'a permis de renforcer mes compétences en développement front-end et en conception Web. J'ai appris à créer un site responsive, structurer proprement un projet Web, utiliser Git et GitHub efficacement, respecter les standards du Web, améliorer l'ergonomie et l'accessibilité d'un site, et travailler de manière plus autonome sur un projet complet.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Traces et preuves</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ─── Fin SAÉ S1 - N°4 ──────────────────────────────────── -->
+
+                <!-- ─── SAÉ S1 - N°5 ──────────────────────────────────────── -->
+                <div class="sae-accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-left">
+                            <span class="accordion-code">SAÉ 1.05</span>
+                            <span class="accordion-title">Traiter des données</span>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="sae-field">
+                                <span class="sae-field-label">Contexte et objectifs</span>
+                                <div class="sae-field-value">
+                                    Dans le cadre de la SAÉ 1.05 « Traiter des données », l'objectif était de développer plusieurs outils en Python permettant d'exploiter les données du projet collaboratif OpenStreetMap. Le projet consistait à interroger différentes API afin de récupérer des informations géographiques, produire des statistiques et générer automatiquement des fiches aux formats Markdown et HTML.
+                                    Deux sous-projets principaux ont été réalisés : la création d'une fiche détaillée sur un point d'intérêt OpenStreetMap, et la récupération et l'analyse de données locales sur une zone géographique donnée.
+                                    Le projet devait également permettre la conversion automatique de fichiers Markdown vers HTML et être utilisable directement depuis le terminal via des scripts Python.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Compétences mobilisées</span>
+                                <div class="competences-tags">
+                                    <span class="competence-tag">Programmation en Python</span>
+                                    <span class="competence-tag">Utilisation d'API REST et Overpass API</span>
+                                    <span class="competence-tag">Traitement et manipulation de données JSON</span>
+                                    <span class="competence-tag">Génération automatique de fichiers Markdown et HTML</span>
+                                    <span class="competence-tag">Analyse et calcul de statistiques</span>
+                                    <span class="competence-tag">Structuration et documentation de code</span>
+                                    <span class="competence-tag">Bibliothèques Python (json, requests, markdown, etc.)</span>
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages Critiques (AC)</span>
+                                <div class="sae-field-value">
+                                    Interroger une API Web et exploiter ses données — Manipuler des structures de données complexes en Python — Produire des fichiers HTML à partir de données automatisées — Concevoir des fonctions réutilisables et documentées — Calculer et interpréter des statistiques pertinentes — Organiser un projet Python en plusieurs modules — Utiliser des scripts Python depuis le terminal
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Situation et rôle</span>
+                                <div class="sae-field-value">
+                                    J'ai travaillé en tant que développeur Python chargé de concevoir un outil d'analyse et de génération de données à partir d'OpenStreetMap.
+                                    Mon rôle consistait à récupérer les données via les API, traiter les informations JSON, automatiser la génération des fiches, calculer des statistiques pertinentes, documenter et structurer le code, et produire un rendu clair et exploitable en HTML et Markdown.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Démarche et actions</span>
+                                <div class="sae-field-value">
+                                    Étude du cahier des charges et des API OpenStreetMap — Création d'un module de conversion Markdown → HTML — Développement des fonctions permettant de récupérer les données d'un point d'intérêt OSM — Génération automatique de fiches Markdown et HTML — Utilisation de l'API Overpass pour récupérer des ensembles de données géographiques — Mise en place de calculs statistiques sur les données récupérées — Structuration des résultats dans des fichiers lisibles et organisés — Documentation des fonctions et tests des scripts Python — Vérification du bon fonctionnement depuis le terminal
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Résultats obtenus</span>
+                                <div class="sae-field-value">
+                                    Le projet final permet de générer automatiquement des fiches HTML et Markdown sur des points d'intérêt OpenStreetMap, de récupérer des données géographiques sur une zone précise, de produire des statistiques exploitables sur les données collectées, et d'utiliser les scripts directement en ligne de commande.
+                                    Les différentes fonctionnalités demandées dans le cahier des charges ont été implémentées et le code a été structuré en plusieurs modules réutilisables.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Points forts</span>
+                                <div class="sae-field-value">
+                                    Bonne organisation du projet Python — Utilisation correcte des API OpenStreetMap et Overpass — Génération automatique de contenu HTML et Markdown — Calcul de statistiques pertinentes et exploitables — Code modulaire et documenté — Scripts fonctionnels directement depuis le terminal
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Difficultés rencontrées</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Apprentissages et compétences développées</span>
+                                <div class="sae-field-value">
+                                    Cette SAÉ m'a permis de développer mes compétences en programmation Python et en traitement de données. J'ai appris à interroger des API Web, manipuler des données JSON, automatiser la génération de documents, structurer un projet Python en plusieurs fichiers, calculer des statistiques pertinentes, améliorer la qualité et la documentation du code, et travailler de manière plus autonome sur un projet technique complet.
+                                </div>
+                            </div>
+                            <div class="sae-field">
+                                <span class="sae-field-label">Traces et preuves</span>
+                                <div class="sae-field-value"><!-- ✏️ --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ─── Fin SAÉ S1 - N°5 ──────────────────────────────────── -->
+
+            </div>
+
+
+        <div class="footer">
+            <p class="footer-text">
+                Portfolio BUT Réseaux & Télécommunications - Parcours Cybersécurité<br>
+                <strong>IUT Grand Ouest Normandie</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle accordéon
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+
+            // Fermer tous les autres
+            document.querySelectorAll('.accordion-header').forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                }
+            });
+
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
