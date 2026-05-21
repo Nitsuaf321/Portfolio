@@ -375,6 +375,130 @@
             .info-grid { grid-template-columns: 1fr 1fr; }
         }
 
+        /* ── SECTION MON PARCOURS ── */
+        .parcours-section {
+            padding: 60px 60px 50px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin-top: 36px;
+            padding-left: 12px;
+        }
+
+        .tl-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            position: relative;
+        }
+
+        .tl-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-past   .tl-dot { background: #94a3b8; box-shadow: 0 0 0 4px rgba(148,163,184,.2); }
+        .tl-current .tl-dot {
+            background: var(--accent);
+            box-shadow: 0 0 0 5px rgba(49,130,206,.2), 0 0 14px rgba(49,130,206,.45);
+            animation: tl-pulse 2.2s ease-in-out infinite;
+        }
+        .tl-future  .tl-dot {
+            background: transparent;
+            border: 2.5px dashed #cbd5e1;
+            box-shadow: none;
+        }
+
+        @keyframes tl-pulse {
+            0%,100% { box-shadow: 0 0 0 5px rgba(49,130,206,.2), 0 0 14px rgba(49,130,206,.45); }
+            50%      { box-shadow: 0 0 0 9px rgba(49,130,206,.1), 0 0 22px rgba(49,130,206,.25); }
+        }
+
+        .tl-connector {
+            width: 2px;
+            height: 26px;
+            background: #cbd5e1;
+            margin-left: 9px;
+        }
+        .tl-connector-dashed {
+            background: repeating-linear-gradient(
+                to bottom,
+                #cbd5e1 0px, #cbd5e1 5px,
+                transparent 5px, transparent 10px
+            );
+        }
+
+        .tl-card {
+            flex: 1;
+            border-radius: 14px;
+            padding: 16px 22px;
+            border: 1px solid var(--border);
+            margin-bottom: 0;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .tl-card:hover { transform: translateX(5px); box-shadow: 0 6px 22px rgba(49,130,206,.1); }
+
+        .tl-past    .tl-card { background: var(--bg-light); }
+        .tl-current .tl-card {
+            background: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(49,130,206,.12);
+        }
+        .tl-future  .tl-card { background: var(--bg-light); opacity: .72; }
+
+        .tl-year {
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+        .tl-current .tl-year { color: var(--accent); }
+
+        .tl-step {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .tl-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .tl-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .tl-future .tl-title { color: var(--text-light); }
+
+        .tl-desc {
+            font-size: 0.88rem;
+            color: var(--text-medium);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 900px) {
+            .parcours-section { padding: 40px 30px; }
+        }
+
         /* Scroll smooth */
         html { scroll-behavior: smooth; }
 
@@ -429,6 +553,7 @@
                 <a href="#infos">📋 Informations</a>
                 <a href="#projet">🚀 Projet professionnel</a>
                 <a href="#competences">💪 Compétences</a>
+                <a href="#parcours">🗺️ Mon Parcours</a>
                 <a href="#objectifs">🎓 Objectifs</a>
             </div>
         </nav>
@@ -496,9 +621,11 @@
                     <div class="info-value">2025-2026</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Email</div>
+                    <div class="info-label">Curriculum Vitae</div>
                     <div class="info-value">
-                        <a href="/cdn-cgi/l/email-protection#e7a1869294938e898a86958e82d4d5d6a7808a868e8bc984888a">faustinmarie321@gmail.com</a>
+                        <a href="Documents/CV_MARIE_Faustin.pdf" download="CV_MARIE_Faustin.pdf" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent,#2563eb);color:#fff;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                            📄 Télécharger mon CV
+                        </a>
                     </div>
                 </div>
                 <div class="info-card">
@@ -551,6 +678,80 @@
                         <div class="skill-item">Active Directory</div>
                         <div class="skill-item">Scripting Bash</div>
                         -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             MON PARCOURS — FRISE CHRONOLOGIQUE
+        ══════════════════════════════════════ -->
+        <section class="parcours-section scroll-target" id="parcours">
+            <h2 class="section-title">🗺️ Mon Parcours</h2>
+
+            <div class="timeline">
+
+                <!-- Étape 1 -->
+                <div class="tl-item tl-past">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-year">2022 – 2023</div>
+                        <div class="tl-step">Seconde &amp; Première</div>
+                        <div class="tl-title">Lycée Lemonnier — Filière STI2D</div>
+                        <div class="tl-desc">Sciences et Technologies de l'Industrie et du Développement Durable — découverte des systèmes numériques, de l'électronique et des technologies réseau.</div>
+                    </div>
+                </div>
+
+                <div class="tl-connector"></div>
+
+                <!-- Étape 2 -->
+                <div class="tl-item tl-past">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-year">2023 – 2024</div>
+                        <div class="tl-step">Terminale</div>
+                        <div class="tl-title">Bac Technologique STI2D ✓</div>
+                        <div class="tl-desc">Obtention du Baccalauréat Technologique STI2D. Approfondissement des bases techniques en systèmes d'information et numérique.</div>
+                    </div>
+                </div>
+
+                <div class="tl-connector"></div>
+
+                <!-- Étape 3 — ACTUEL -->
+                <div class="tl-item tl-current">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-year">2024 – 2025</div>
+                        <div class="tl-step"><span class="tl-badge">📍 Actuellement</span></div>
+                        <div class="tl-title">BUT R&amp;T — 1ère année</div>
+                        <div class="tl-desc">IUT Grand Ouest Normandie — Parcours Cybersécurité. Administration réseau, développement, transmission et sécurité des systèmes d'information.</div>
+                    </div>
+                </div>
+
+                <div class="tl-connector tl-connector-dashed"></div>
+
+                <!-- Étape 4 -->
+                <div class="tl-item tl-future">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-year">2025 – 2026</div>
+                        <div class="tl-step">À venir</div>
+                        <div class="tl-title">BUT R&amp;T — 2ème année</div>
+                        <div class="tl-desc">Approfondissement des compétences réseau et cybersécurité, montée en autonomie sur des projets plus complexes.</div>
+                    </div>
+                </div>
+
+                <div class="tl-connector tl-connector-dashed"></div>
+
+                <!-- Étape 5 -->
+                <div class="tl-item tl-future">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-year">2026 – 2027</div>
+                        <div class="tl-step">À venir</div>
+                        <div class="tl-title">BUT R&amp;T — 3ème année &amp; Diplôme</div>
+                        <div class="tl-desc">Stage ou alternance longue durée, spécialisation Cybersécurité et obtention du BUT Réseaux &amp; Télécommunications.</div>
                     </div>
                 </div>
 
